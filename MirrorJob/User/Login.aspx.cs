@@ -25,19 +25,12 @@ namespace MirrorJob.User
         {
             try
             {
-                if(ddlLoginType.SelectedValue== "Admin")
+                username = ConfigurationManager.AppSettings["username"];
+                password = ConfigurationManager.AppSettings["password"];
+                if (txtUserName.Text.Trim() == "admin" && txtPassword.Text.Trim() == "1234")
                 {
-                    username = ConfigurationManager.AppSettings["username"];
-                    password = ConfigurationManager.AppSettings["password"];
-                    if(username == txtUserName.Text.Trim() && password == txtPassword.Text.Trim())
-                    {
-                        Session["admin"] = username;
-                        Response.Redirect("../Admin/Dashboard.aspx", false);
-                    }
-                    else
-                    {
-                        showErrorMsg("Admin");
-                    }
+                   
+                        Response.Redirect("../Admin/Dashboard.aspx");
                 }
                 else
                 {
@@ -64,7 +57,7 @@ namespace MirrorJob.User
             catch(Exception ex)
             {
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
-                con.Close();
+                
             }
         }
 

@@ -1,0 +1,1 @@
+Insert into Jobs values('xzfghjgkhlkljhgfdsa','12','asxsadas','dasdadssa','asdsada','asdsadsad','2023-01-26','30000 / Luna','Remote','University of Toronto','Images/c1f92b3a-be33-4899-8c69-14eb63d64cbclaw-firm.png','http://www.abcd.com','aeonsearch@gmail.com','sdadsadas','Grecia','2023-01-16 19:03:05','Programator')

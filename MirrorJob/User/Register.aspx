@@ -86,7 +86,7 @@
                                 </div>
                             <div class="col-12">
                                     <div class="form-group">
-                                        <label>Email</label>
+                                        <label>Tara</label>
                                         <asp:DropDownList ID="ddlCountry" runat="server" DataSourceID="SqlDataSource1" CssClass="form-contact w-100"
                                             AppendDataBoundItems="true" DataTextField="CountryName" DataValueField="CountryName">
                                             <asp:ListItem Value="0">Select Country</asp:ListItem>
@@ -97,7 +97,39 @@
                                         </asp:RequiredFieldValidator>
                                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:cs %>" SelectCommand="SELECT [CountryName] FROM [Country]"></asp:SqlDataSource>
                                     </div>
+
                                 </div>
+                            <div class="col-md-6 pt-4">
+            <Label for="txtLast" style="font-weight: 600">Tipul Jobului</Label>
+           <asp:DropDownList ID="ddlJob" runat="server" CssClass="form-control">
+               <asp:ListItem Value="0">Selecteaza Tipul Jobului</asp:ListItem>
+               <asp:ListItem>Actor</asp:ListItem>
+               <asp:ListItem>Inginer</asp:ListItem>
+              <asp:ListItem>Programator</asp:ListItem>
+              <asp:ListItem>Editor Video</asp:ListItem>
+               <asp:ListItem>Solist</asp:ListItem>
+              <asp:ListItem>Muzician</asp:ListItem>
+              <asp:ListItem>Administrator</asp:ListItem>
+              <asp:ListItem>Contabil</asp:ListItem>
+               <asp:ListItem>Antrenor Personal</asp:ListItem>
+                <asp:ListItem>Instructor Auto</asp:ListItem>
+              <asp:ListItem>Medic</asp:ListItem>
+               <asp:ListItem>Agent Imobiliar</asp:ListItem>
+              <asp:ListItem>Sofer</asp:ListItem>
+              <asp:ListItem>Chimist</asp:ListItem>
+             <asp:ListItem>Pictor</asp:ListItem>
+              <asp:ListItem>Sculptor</asp:ListItem>
+             <asp:ListItem>Electrician</asp:ListItem>
+             <asp:ListItem>Mecanic</asp:ListItem>
+              <asp:ListItem>Bucatar</asp:ListItem>
+             <asp:ListItem>Ospatar</asp:ListItem>
+             <asp:ListItem>Barman</asp:ListItem>
+              <asp:ListItem>Bancher</asp:ListItem>
+            <asp:ListItem>Frizer</asp:ListItem>
+           </asp:DropDownList>
+         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Tipul Jobului este necesar" ForeColor="Red"
+            ControlToValidate="ddlJob" InitialValue="0" Display="Dynamic" SetFocusOnError="true"></asp:RequiredFieldValidator>
+        </div>
                             </div>
                             <div class="form-group mt-4">
                                 <asp:Button ID="btnRegister" runat="server" Text="Register" CssClass="button button-contactForm boxed-btn mr-4" OnClick="btnRegister_Click"/>

@@ -8,8 +8,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="../assets/css/Styles.css">
-    <link rel="stylesheet" href="../assets/css/theme.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <%--<link rel="stylesheet" href="../assets/css/theme.css">--%>
 
     <script src="../assets/js/vendor/jquery-1.12.4.min.js"></script>
     <script src="../assets/js/popper.min.js"></script>
@@ -32,22 +32,21 @@
             });
         });
     </script>
+     <script>
+         $(function () {
+             // this will get the full URL at the address bar
+             var url = window.location.href;
 
-    <script>
-        $(function () {
-            // this will get the full URL at the address bar
-            var url = window.location.href;
+             // passes on every "a" tag 
+             $("#sub-header a").each(function () {
+                 // checks if its the same on the address bar
+                 if (url == (this.href)) {
+                     $(this).closest("li").addClass("active");
+                 }
+             });
 
-            // passes on every "a" tag 
-            $("#sub-header a").each(function () {
-                // checks if its the same on the address bar
-                if (url == (this.href)) {
-                    $(this).closest("li").addClass("active");
-                }
-            });
-
-        });
-    </script>
+         });
+     </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -85,14 +84,14 @@
                         <li>
                             <a href="JobList.aspx">
                                 <div class="icon"><i class="fas fa-file-alt"></i></div>
-                                <div class="title">Lista de Joburi</div>
+                                <div class="title">Lista Joburi</div>
                             </a>
                         </li>
 
                         <li>
                             <a href="ViewResume.aspx">
                                 <div class="icon"><i class="fas fa-file-download"></i></div>
-                                <div class="title">Vezi CV-ul</div>
+                                <div class="title">Vizualizare CV</div>
                             </a>
                         </li>
 
@@ -104,7 +103,7 @@
                         </li>
                     </ul>
                     <div class="logout_btn">
-                        <asp:LinkButton ID="btnLogOut" runat="server" CausesValidation="false">Logout</asp:LinkButton>
+                        <asp:LinkButton ID="btnLogOut" runat="server" href="../User/Login.aspx">Logout</asp:LinkButton>
                     </div>
 
                 </div>

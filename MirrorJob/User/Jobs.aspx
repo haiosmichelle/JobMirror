@@ -46,7 +46,7 @@
                         <div class="job-category-listing mb-50">
                             <!-- single one -->
                             <div class="single-listing">
-                               <div class="small-section-tittle2">
+                              <%-- <div class="small-section-tittle2">
                                      <h4>Categorie Job</h4>
                                </div>
                                 <!-- Select job items start -->
@@ -58,14 +58,24 @@
                                         <option value="">Categoria 3</option>
                                         <option value="">Categoria 4</option>
                                     </select>
-                                </div>
+                                </div>--%>
                                 <!--  Select job items End-->
                                 <!-- select-Categories start -->
-                                <div class="select-Categories pt-80 pb-50">
+                                <div class="select-Categories pt-25  pb-50">
                                     <div class="small-section-tittle2">
                                         <h4>Tip Job</h4>
                                     </div>
-                                    <label class="container">Full Time
+                                    <div class="checkbox checkbox-primary">
+                                        <asp:CheckBoxList ID="CheckBoxList1" runat="server" AutoPostBack="true"
+                                            RepeatDirection="Vertical" RepeatLayout="Flow" CssClass="styled"
+                                            TextAlign="Right" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged">
+                                            <asp:ListItem>Full Time</asp:ListItem>
+                                            <asp:ListItem>Part Time</asp:ListItem>
+                                            <asp:ListItem>Remote</asp:ListItem>
+                                            <asp:ListItem>Freelance</asp:ListItem>
+                                        </asp:CheckBoxList>
+                                        </div>
+                                    <%--<label class="container">Full Time
                                         <input type="checkbox" >
                                         <span class="checkmark"></span>
                                     </label>
@@ -80,28 +90,36 @@
                                     <label class="container">Freelance
                                         <input type="checkbox">
                                         <span class="checkmark"></span>
-                                    </label>
+                                    </label>--%>
                                 </div>
                                 <!-- select-Categories End -->
                             </div>
                             <!-- single two -->
                             <div class="single-listing">
-                               <div class="small-section-tittle2">
+                               <div class="small-section-tittle2  pb-10 ">
                                      <h4>Locatie Job</h4>
                                </div>
                                 <!-- Select job items start -->
-                                <div class="select-job-items2">
-                                    <select name="select">
+                                <div class="select-job-items2  pb-70 ">
+                                    <asp:DropDownList ID="ddlCountry" runat="server" Font-Names="select" CssClass="form-control w-100"
+                                        DataSourceID="SqlDataSource1" AppendDataBoundItems="true" DataTextField="CountryName"
+                                        DataValueField="CountryName" OnSelectedIndexChanged="ddlCountry_SelectedIndexChanged"
+                                        AutoPostBack="true">
+                                        <asp:ListItem Value="0">Tara</asp:ListItem>
+                                    </asp:DropDownList>
+                                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:cs %>"
+                                    SelectCommand="SELECT [CountryName] FROM [Country]"></asp:SqlDataSource>
+                                    <%--<select name="select">
                                         <option value="">Oriunde</option>
                                         <option value="">Categoria 1</option>
                                         <option value="">Categoria 2</option>
                                         <option value="">Categoria 3</option>
                                         <option value="">Categoria 4</option>
-                                    </select>
+                                    </select>--%>
                                 </div>
                                 <!--  Select job items End-->
                                 <!-- select-Categories start -->
-                                <div class="select-Categories pt-80 pb-50">
+                               <%-- <div class="select-Categories pt-80 pb-50">
                                     <div class="small-section-tittle2">
                                         <h4>Experiență</h4>
                                     </div>
@@ -121,7 +139,7 @@
                                         <input type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
-                                </div>
+                                </div>--%>
                                 <!-- select-Categories End -->
                             </div>
                             <!-- single three -->
@@ -131,7 +149,18 @@
                                     <div class="small-section-tittle2">
                                         <h4>Postat în termen de</h4>
                                     </div>
-                                    <label class="container">Oricare
+                                   <%-- <div class="radiobuttoncontainer">
+                                        <asp:RadioButtonList ID="RadioButtonList1" runat="server" CssClass="radiobuttonlist" AutoPostBack="true"
+                                            OnSelectIndexChanged="RadioButtonList1_SelectedIndexChanged" RepeatLayout="Flow">
+                                            <asp:ListItem Value="0" Selected="True" >orice</asp:ListItem>
+                                             <asp:ListItem Value="1" >Azi</asp:ListItem>
+                                             <asp:ListItem Value="2" >Acum 2 zile</asp:ListItem>
+                                             <asp:ListItem Value="3" >Acum 3 zile</asp:ListItem>
+                                             <asp:ListItem Value="4" >Acum 5 zile</asp:ListItem>
+                                             <asp:ListItem Value="5" >Acum 10 zile</asp:ListItem>
+                                        </asp:RadioButtonList>
+                                    </div>--%>
+                                    <%--<label class="container">Oricare
                                         <input type="checkbox" >
                                         <span class="checkmark"></span>
                                     </label>
@@ -154,13 +183,13 @@
                                     <label class="container">În urmă cu 10 zile
                                         <input type="checkbox">
                                         <span class="checkmark"></span>
-                                    </label>
+                                    </label>--%>
                                 </div>
                                 <!-- select-Categories End -->
                             </div>
                             <div class="single-listing">
                                 <!-- Range Slider Start -->
-                                <aside class="left_widgets p_filter_widgets price_rangs_aside sidebar_box_shadow">
+                                <%--<aside class="left_widgets p_filter_widgets price_rangs_aside sidebar_box_shadow">
                                     <div class="small-section-tittle2">
                                         <h4>Filter Jobs</h4>
                                     </div>
@@ -180,8 +209,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                </aside>
+                                </aside>--%>
+                               <asp:Button ID="btnFilter" runat="server" Text="Filter" CssClass="button button-contactForm boxed-btn mr-4" OnClick="btnFilter_Click" />
                               <!-- Range Slider End -->
+                            </div>
+                            <div class="pt-20 pb-20">
+                            <asp:Button ID="btnReset" runat="server" Text="Reset" CssClass="button button-contactForm boxed-btn mr-4" OnClick="btnReset_Click" />
                             </div>
                         </div>
                         <!-- Job Category Listing End -->
@@ -195,9 +228,9 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="count-job mb-35">
-                                            <span>39, 782 Joburi găsite</span>
+                                            <asp:Label ID="lbljobCount" runat="server"></asp:Label>
                                             <!-- Select job items start -->
-                                            <div class="select-job-items">
+                                           <%-- <div class="select-job-items">
                                                 <span>Sortate după</span>
                                                 <select name="select">
                                                     <option value="">Nimic</option>
@@ -205,166 +238,45 @@
                                                     <option value="">Listă Job</option>
                                                     <option value="">Listă Job</option>
                                                 </select>
-                                            </div>
+                                            </div>--%>
                                             <!--  Select job items End-->
                                         </div>
                                     </div>
                                 </div>
+                                <asp:DataList ID="DataList1" runat="server">
+                                    <ItemTemplate>
+                                
                                 <!-- Count of Job list End -->
                                 <!-- single-job-content -->
                                 <div class="single-job-items mb-30">
                                     <div class="job-items">
                                         <div class="company-img">
-                                            <a href="#"><img src="../assets/img/icon/job-list1.png" alt=""></a>
+                                            <a herf="job_details.aspx?id=<%# Eval("JobId") %>">
+                                                <img width="80" src="<%# GetImageUrl( Eval("CompanyImage")) %>" alt="" >
+                                            </a>
                                         </div>
                                         <div class="job-tittle job-tittle2">
-                                            <a href="#">
-                                                <h4>Digital Marketer</h4>
+                                            <a href="job_details.aspx?id=<%# Eval("JobId") %>">
+                                               <h5><%# Eval("Title") %></h5>
                                             </a>
                                             <ul>
-                                                <li>Creative Agency</li>
-                                                <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                                <li>$3500 - $4000</li>
+                                                <li><%# Eval("CompanyName") %></li>
+                                                <li><i class="fas fa-map-marker-alt"></i><%# Eval("Country") %></li>
+                                                <li><%# Eval("Salary") %></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="items-link items-link2 f-right">
-                                        <a href="job_details.html">Full Time</a>
-                                        <span>7 ore în urmă</span>
+                                        <a href="job_details.aspx?id=<%# Eval("JobId") %>"><%# Eval("JobType") %></a>
+                                        <span class="text-secondary">
+                                            <i class="fas fa-clock pr-1"></i>
+                                            <%# Eval("CreateDate")%>
+                                        </span>
                                     </div>
                                 </div>
+                                </ItemTemplate>
+                               </asp:DataList>
                                 <!-- single-job-content -->
-                                <div class="single-job-items mb-30">
-                                    <div class="job-items">
-                                        <div class="company-img">
-                                            <a href="#"><img src="../assets/img/icon/job-list2.png" alt=""></a>
-                                        </div>
-                                        <div class="job-tittle job-tittle2">
-                                            <a href="#">
-                                                <h4>Digital Marketer</h4>
-                                            </a>
-                                            <ul>
-                                                <li>Creative Agency</li>
-                                                <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                                <li>$3500 - $4000</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="items-link items-link2 f-right">
-                                        <a href="job_details.html">Full Time</a>
-                                        <span>7 ore în urmă</span>
-                                    </div>
-                                </div>
-                                <!-- single-job-content -->
-                                <div class="single-job-items mb-30">
-                                    <div class="job-items">
-                                        <div class="company-img">
-                                            <a href="#"><img src="../assets/img/icon/job-list3.png" alt=""></a>
-                                        </div>
-                                        <div class="job-tittle job-tittle2">
-                                            <a href="#">
-                                                <h4>Digital Marketer</h4>
-                                            </a>
-                                            <ul>
-                                                <li>Creative Agency</li>
-                                                <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                                <li>$3500 - $4000</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="items-link items-link2 f-right">
-                                        <a href="job_details.html">Full Time</a>
-                                        <span>7 ore în urmă</span>
-                                    </div>
-                                </div>
-                                <!-- single-job-content -->
-                                <div class="single-job-items mb-30">
-                                    <div class="job-items">
-                                        <div class="company-img">
-                                            <a href="#"><img src="../assets/img/icon/job-list4.png" alt=""></a>
-                                        </div>
-                                        <div class="job-tittle job-tittle2">
-                                            <a href="#">
-                                                <h4>Digital Marketer</h4>
-                                            </a>
-                                            <ul>
-                                                <li>Creative Agency</li>
-                                                <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                                <li>$3500 - $4000</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="items-link items-link2 f-right">
-                                        <a href="job_details.html">Full Time</a>
-                                        <span>7 ore în urmă</span>
-                                    </div>
-                                </div>
-                                <!-- single-job-content -->
-                                <div class="single-job-items mb-30">
-                                    <div class="job-items">
-                                        <div class="company-img">
-                                            <a href="#"><img src="../assets/img/icon/job-list1.png" alt=""></a>
-                                        </div>
-                                        <div class="job-tittle job-tittle2">
-                                            <a href="#">
-                                                <h4>Digital Marketer</h4>
-                                            </a>
-                                            <ul>
-                                                <li>Creative Agency</li>
-                                                <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                                <li>$3500 - $4000</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="items-link items-link2 f-right">
-                                        <a href="job_details.html">Full Time</a>
-                                        <span>7 ore în urmă</span>
-                                    </div>
-                                </div>
-                                <!-- single-job-content -->
-                                <div class="single-job-items mb-30">
-                                    <div class="job-items">
-                                        <div class="company-img">
-                                            <a href="#"><img src="../assets/img/icon/job-list3.png" alt=""></a>
-                                        </div>
-                                        <div class="job-tittle job-tittle2">
-                                            <a href="#">
-                                                <h4>Digital Marketer</h4>
-                                            </a>
-                                            <ul>
-                                                <li>Creative Agency</li>
-                                                <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                                <li>$3500 - $4000</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="items-link items-link2 f-right">
-                                        <a href="job_details.html">Full Time</a>
-                                        <span>7 ore în urmă</span>
-                                    </div>
-                                </div>
-                                <!-- single-job-content -->
-                                <div class="single-job-items mb-30">
-                                    <div class="job-items">
-                                        <div class="company-img">
-                                            <a href="#"><img src="../assets/img/icon/job-list4.png" alt=""></a>
-                                        </div>
-                                        <div class="job-tittle job-tittle2">
-                                            <a href="#">
-                                                <h4>Digital Marketer</h4>
-                                            </a>
-                                            <ul>
-                                                <li>Creative Agency</li>
-                                                <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                                <li>$3500 - $4000</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="items-link items-link2 f-right">
-                                        <a href="job_details.html">Full Time</a>
-                                        <span>7 ore în urmă</span>
-                                    </div>
-                                </div>
                             </div>
                         </section>
                         <!-- Featured_job_end -->
@@ -374,26 +286,7 @@
         </div>
         <!-- Job List Area End -->
         <!--Pagination Start  -->
-        <div class="pagination-area pb-115 text-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="single-wrap d-flex justify-content-center">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination justify-content-start">
-                                    <li class="page-item active"><a class="page-link" href="#">01</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">02</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">03</a></li>
-                                <li class="page-item"><a class="page-link" href="#"><span class="ti-angle-right"></span></a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--Pagination End  -->
-        
+       
+        <!--Pagination End  -->       
     </main>
-
 </asp:Content>

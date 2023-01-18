@@ -29,7 +29,7 @@
 
                                     </div>
                                 </div>
-                             <div class="col-10">
+                            <%-- <div class="col-10">
                                     <div class="form-group">
                                         <label>Tip de conectare</label>
                                         <asp:DropDownList ID="ddlLoginType" runat="server" CssClass="form-control w-100">
@@ -42,7 +42,7 @@
                                             Font-Size="Small" InitialValue="0" ControlToValidate="ddlLoginType">
                                         </asp:RequiredFieldValidator>
                                     </div>
-                                </div>
+                                </div>--%>
                             </div>
                             <div class="form-group mt-5">
                                 <asp:Button ID="btnLogin" runat="server" Text="Logare" CssClass="button button-contactForm boxed-btn mr-4" OnClick="btnLogin_Click"/>

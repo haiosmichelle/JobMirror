@@ -13,5 +13,19 @@ namespace MirrorJob.User
         {
 
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+
+            if (Session["user"] !=null)
+            {
+               
+                Response.Redirect("/User/Cv.aspx");
+            }
+            else
+            {
+                Response.Redirect("/User/Login.aspx");
+            }
+        }
     }
 }
